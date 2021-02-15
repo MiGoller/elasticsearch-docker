@@ -82,7 +82,7 @@ jobs:
             ${{ steps.image_information.outputs.IMAGE_ID }}:${{ steps.image_information.outputs.IMAGE_REF }}
             ghcr.io/${{ steps.image_information.outputs.IMAGE_ID }}:${{ steps.image_information.outputs.IMAGE_REF }}
 
-        - name: Build and push Docker images with tag 'latest'
+      - name: Build and push Docker images with tag 'latest'
         if: ${{ steps.image_information.outputs.IMAGE_REF }} == 'latest'
         id: docker_build_latest
         uses: docker/build-push-action@v2
