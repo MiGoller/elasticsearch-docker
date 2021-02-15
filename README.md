@@ -1,2 +1,2 @@
-# elasticsearch-docker
-Elasticsearch for Docker and Nextcloud
+# Elasticsearch for Docker and Nextcloud
+
