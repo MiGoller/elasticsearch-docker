@@ -81,7 +81,7 @@ jobs:
       - name: Get version information
         id: image_information
         run: |
-          IMAGE_ID=${{ github.repository_owner }}/$IMAGE_NAME
+          IMAGE_ID=${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
 
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
@@ -109,5 +109,5 @@ jobs:
           # build-args: |
           #   ELASTICTAG={{ env.ELASTICTAG }}
           tags: |
-            ${{ steps.image_information.outputs.IMAGE_ID }}:${{ steps.image_information.outputs.VERSION }}
-            ghcr.io/${{ steps.image_information.outputs.IMAGE_ID }}:${{ steps.image_information.outputs.VERSION }}
+            ${{ steps.image_information.outputs.IMAGE_ID }}:${{ steps.image_information.outputs.IMAGE_REF }}
+            ghcr.io/${{ steps.image_information.outputs.IMAGE_ID }}:${{ steps.image_information.outputs.IMAGE_REF }}
