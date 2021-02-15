@@ -25,7 +25,7 @@ on:
 env:
   # TODO: Change variable to your image's name.
   IMAGE_NAME: "elasticsearch"
-  ELASTICTAG: "7.9.3"
+  # ELASTICTAG: "7.9.3"
 
 jobs:
   # Run tests.
@@ -51,7 +51,7 @@ jobs:
     # needs: test
 
     runs-on: ubuntu-latest
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/develop')
         || (github.event_name == 'pull_request' && github.base_ref == 'refs/heads/main')
         || github.event_name == 'schedule'
 
@@ -106,8 +106,8 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm/v8
           push: true
-          build-args: |
-            ELASTICTAG={{ env.ELASTICTAG }}
+          # build-args: |
+          #   ELASTICTAG={{ env.ELASTICTAG }}
           tags: |
             ${{ steps.image_information.outputs.IMAGE_ID }}:${{ steps.image_information.outputs.VERSION }}
             ghcr.io/${{ steps.image_information.outputs.IMAGE_ID }}:${{ steps.image_information.outputs.VERSION }}
