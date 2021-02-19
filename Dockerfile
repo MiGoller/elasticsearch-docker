@@ -11,6 +11,8 @@ ARG ELASTICTAG=7.9.3
 # Set the base image to use for subsequent instructions.
 FROM elasticsearch:${ELASTICTAG}
 
+ARG ELASTICSEARCHPLUGINS="ingest-attachment"
+
 # Basic build-time metadata as defined at http://label-schema.org
 LABEL \
     org.label-schema.docker.dockerfile="/Dockerfile" \
@@ -29,4 +31,4 @@ LABEL \
 
 # Install additional plugins for Nextcloud's fulltext search
 RUN \
-    bin/elasticsearch-plugin install --batch ingest-attachment
+    bin/elasticsearch-plugin install --batch ${ELASTICSEARCHPLUGINS}

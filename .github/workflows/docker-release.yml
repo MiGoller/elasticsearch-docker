@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         elastictag: ['7.9.3', '7.10.1']
-    name: Publish Ekasticsearch v${{ matrix.elastictag }} images to GitHub and DockerHub Container Registries
+    name: Publish Elasticsearch v${{ matrix.elastictag }} images to GitHub and DockerHub Container Registries
     if: (github.ref == 'refs/heads/main')
         || (github.event_name == 'schedule')
 
