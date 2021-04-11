@@ -6,7 +6,7 @@
 #
 
 # Set the base elastic image's tag
-ARG ELASTICTAG=7.9.3
+ARG ELASTICTAG=7.12.0
 
 # Set the base image to use for subsequent instructions.
 FROM elasticsearch:${ELASTICTAG}
